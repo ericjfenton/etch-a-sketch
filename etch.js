@@ -1,10 +1,20 @@
 console.log("hi");
-const testButton = document.getElementById("test");
+const testButton = document.getElementById('test');
+let squaresDesired = document.querySelector('input');
+let squares = document.querySelectorAll('.square');
+console.log(squares);
+const choice = document.getElementById('choice');
 console.log(testButton);
+console.log(squaresDesired);
 const tests = function(e) {
     console.log(e);
+    console.log(squaresDesired.value);
+}
+const showChoice = function(e) {
+  choice.innerText = squaresDesired.value;
 }
 testButton.addEventListener('click', tests);
+squaresDesired.addEventListener('change', showChoice);
 
 /*
 Project concept is to move the mouse across a grid,
