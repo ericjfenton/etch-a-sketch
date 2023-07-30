@@ -1,0 +1,11 @@
+body {
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+#container {
+    height: 960px;
+    width: 960px;
+    background-color: black;
+    margin: 10px auto;
+}
