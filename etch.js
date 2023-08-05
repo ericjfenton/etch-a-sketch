@@ -1,8 +1,6 @@
 console.log("hi");
 const testButton = document.getElementById('test');
 let squaresDesired = document.querySelector('input');
-let squares = document.querySelectorAll('.square');
-console.log(squares);
 const choice = document.getElementById('choice');
 console.log(testButton);
 console.log(squaresDesired);
@@ -10,9 +8,36 @@ const tests = function(e) {
     console.log(e);
     console.log(squaresDesired.value);
 }
+let numRows = 16;
+let sizeNum = Math.floor(960/numRows) - 1;
+let sizeText = sizeNum + 'px';
+let sizeText2 = '0 0 ' + sizeText;
+console.log(sizeText);
+console.log(typeof sizeText);
 const showChoice = function(e) {
   choice.innerText = squaresDesired.value;
 }
+
+const etching = function(e) {
+  if (e.target.className === 'square') {
+    e.target.style.backgroundColor = 'black';
+  }
+  console.log(e.target.className);
+}
+
+const newSquare = document.createElement('div');
+newSquare.classList.add('square');
+newSquare.style.height = sizeText;
+newSquare.style.width = sizeText;
+newSquare.style.flex = sizeText2;
+container.appendChild(newSquare);
+for (let i = 1; i < numRows ** 2; i++) {
+container.appendChild(newSquare.cloneNode());
+}
+let squares = document.querySelectorAll('.square');
+
+squares.forEach(square => addEventListener('mouseover', etching));
+
 testButton.addEventListener('click', tests);
 squaresDesired.addEventListener('change', showChoice);
 
