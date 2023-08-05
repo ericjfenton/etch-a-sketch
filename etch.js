@@ -18,12 +18,15 @@ console.log(typeof sizeText);
 const updateGrid = function(e) {
   numRows = squaresDesired.value;
   choice.innerText = numRows;
-  sizeNum = Math.floor(959/numRows) - 1;
+  sizeNum = Math.floor(961/numRows) - 1;
   sizeText = sizeNum + 'px';
   sizeText2 = '0 0 ' + sizeText;
   container.innerText = '';
   makeSquares();
 }
+
+// the method for constructing is wrong
+// should make separate rows, not rely on flexwrap
 
 const makeSquares = function() {
   const newSquare = document.createElement('div');
