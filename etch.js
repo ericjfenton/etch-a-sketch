@@ -7,6 +7,7 @@ console.log(squaresDesired);
 const tests = function(e) {
     console.log(e);
     console.log(squaresDesired.value);
+    container.innerText = '';
 }
 let numRows = 16;
 let sizeNum = Math.floor(960/numRows) - 1;
@@ -14,18 +15,18 @@ let sizeText = sizeNum + 'px';
 let sizeText2 = '0 0 ' + sizeText;
 console.log(sizeText);
 console.log(typeof sizeText);
-const showChoice = function(e) {
-  choice.innerText = squaresDesired.value;
+const updateGrid = function(e) {
+  numRows = squaresDesired.value;
+  choice.innerText = numRows;
+  sizeNum = Math.floor(959/numRows) - 1;
+  sizeText = sizeNum + 'px';
+  sizeText2 = '0 0 ' + sizeText;
+  container.innerText = '';
+  makeSquares();
 }
 
-const etching = function(e) {
-  if (e.target.className === 'square') {
-    e.target.style.backgroundColor = 'black';
-  }
-  console.log(e.target.className);
-}
-
-const newSquare = document.createElement('div');
+const makeSquares = function() {
+  const newSquare = document.createElement('div');
 newSquare.classList.add('square');
 newSquare.style.height = sizeText;
 newSquare.style.width = sizeText;
@@ -34,12 +35,31 @@ container.appendChild(newSquare);
 for (let i = 1; i < numRows ** 2; i++) {
 container.appendChild(newSquare.cloneNode());
 }
+
+}
+
+const etching = function(e) {
+  if (e.target.className === 'square') {
+    e.target.style.backgroundColor = 'black';
+  }
+  console.log(e.target.className);
+}
+makeSquares();
+/*const newSquare = document.createElement('div');
+newSquare.classList.add('square');
+newSquare.style.height = sizeText;
+newSquare.style.width = sizeText;
+newSquare.style.flex = sizeText2;
+container.appendChild(newSquare);
+for (let i = 1; i < numRows ** 2; i++) {
+container.appendChild(newSquare.cloneNode());
+} */
 let squares = document.querySelectorAll('.square');
 
 squares.forEach(square => addEventListener('mouseover', etching));
 
 testButton.addEventListener('click', tests);
-squaresDesired.addEventListener('change', showChoice);
+squaresDesired.addEventListener('change', updateGrid);
 
 /*
 Project concept is to move the mouse across a grid,
