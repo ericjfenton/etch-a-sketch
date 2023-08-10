@@ -10,7 +10,7 @@ const tests = function(e) {
     container.innerText = '';
 }
 let numRows = 16;
-let sizeNum = Math.floor(960/numRows) - 1;
+let sizeNum = Math.floor(961/numRows) - 1;
 let sizeText = sizeNum + 'px';
 let sizeText2 = '0 0 ' + sizeText;
 console.log(sizeText);
@@ -19,6 +19,11 @@ const updateGrid = function(e) {
   numRows = squaresDesired.value;
   choice.innerText = numRows;
   sizeNum = Math.floor(961/numRows) - 1;
+  // if (960 - sizeNum * numRows > sizeNum) sizeNum++;
+  //if (960 - sizeNum * numRows > sizeNum) sizeNum++;
+  // doesn't work correctly for large numbers
+  // actually looks worse with the "fix" with if statements
+  // need to make one row at a time
   sizeText = sizeNum + 'px';
   sizeText2 = '0 0 ' + sizeText;
   container.innerText = '';

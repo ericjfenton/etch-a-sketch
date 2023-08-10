@@ -4,20 +4,24 @@ body {
 }
 
 #container {
-    height: 960px;
-    width: 960px;
+    height: 700px;
+    width: 700px;
     background-color: black;
     margin: 10px auto;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    gap: 2px;
+    color: red;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+    gap: 2px;
+
 }
 
 .square {
-    /* height: 300px;
-    width: 300px; */
-    color: red;
     background-color: gray;
-    /* flex: 0 0 300px; */
+    flex: 1;
 }
