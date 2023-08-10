@@ -3,9 +3,13 @@ body {
     background-color: antiquewhite;
 }
 
+h1 {
+    margin: 5px;
+}
+
 #container {
-    height: 700px;
-    width: 700px;
+    height: 960px;
+    width: 960px;
     background-color: black;
     margin: 10px auto;
     display: flex;
